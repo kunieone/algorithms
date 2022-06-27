@@ -5,8 +5,13 @@ import (
 	"fmt"
 )
 
+var (
+// p  = fmt.Println
+)
+
 func main() {
 
-	fmt.Println(sort.ShellSort([]int{3, 8, 7, 9, 0, 5, 6, 1}))
+	a := sort.RSort([]int{10, 100, 8}, 15)
+	fmt.Println(a)
 
 }
