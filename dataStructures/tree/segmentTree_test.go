@@ -2,12 +2,10 @@ package tree
 
 import (
 	"testing"
+
+	"github.com/gookit/goutil/dump"
 )
 
-func TestArrToSegTree(t *testing.T) {
-	// dump.Println(ArrToSegTree([]int{2, 5, 4, 7, 6}))
-	arr := []int{1, 2, 3, 4, 4, 56, 3, 2, 1}
-
+func TestNew(t *testing.T) {
+	dump.P(New(0, &[]int{1, 2, 3}))
 }
-
-type j = map[string]interface{}
