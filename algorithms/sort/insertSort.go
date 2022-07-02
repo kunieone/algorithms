@@ -1,12 +1,7 @@
 package sort
 
-import (
-	"fmt"
-	"time"
-)
-
-func InsertSort(arr []int) []int {
-	startTime := time.Now()
+func ISort(arr []int) []int {
+	// startTime := time.Now()
 	for i := 1; i < len(arr); i++ {
 		end := i - 1
 
@@ -18,8 +13,8 @@ func InsertSort(arr []int) []int {
 		}
 		arr[end+1] = tmp
 	}
-	elapsedTime := time.Since(startTime) / time.Millisecond // duration in ms
-	fmt.Printf("Segment finished in %dms\n", elapsedTime)
+	// elapsedTime := time.Since(startTime) / time.Millisecond // duration in ms
+	// fmt.Printf("Segment finished in %dms\n", elapsedTime)
 	return arr
 }
 

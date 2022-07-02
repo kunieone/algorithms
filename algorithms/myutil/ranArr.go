@@ -1,6 +1,7 @@
 package myutil
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 	"time"
@@ -19,13 +20,15 @@ func GenNoRArr(length int) []int {
 	return arr
 }
 
-func Rival(length int, cb func([]int) []int) float64 {
+func Rival(length int, cb func([]int) []int) string {
 	testArr := GenNoRArr(length)
 	sT := time.Now()
 	cb(testArr)
 	eT := time.Since(sT)
 	t := float64(eT.Microseconds())
-	return (t * math.Log2(float64(length))) / float64(length)
+	fmt.Printf("%4f", (t*math.Log2(float64(length)))/float64(length))
+	fmt.Println(" ")
+	return fmt.Sprintf("%.4f", (t*math.Log2(float64(length)))/float64(length))
 }
 
 func RivalTime(length int, cb func([]int) []int) time.Duration {
@@ -34,4 +37,18 @@ func RivalTime(length int, cb func([]int) []int) time.Duration {
 	cb(testArr)
 	eT := time.Since(sT)
 	return eT
+}
+
+func GetMaxMin(arr []int) (max int, min int) {
+	max, min = arr[0], arr[0]
+	for _, v := range arr {
+
+		if v >= max {
+			max = v
+		}
+		if v < min {
+			min = v
+		}
+	}
+	return max, min
 }

@@ -1,7 +1,6 @@
 package sort
 
 import (
-	"fmt"
 	"math"
 	"strconv"
 )
@@ -38,14 +37,17 @@ func GetDigit(num int, dig int, base int) int {
 
 func RSort(arr []int, base int) []int {
 	maxDig := getMaxRad(arr, base)
-	fmt.Println("maxDig", maxDig)
+	// fmt.Println("maxDig", maxDig)
 
 	return rdx(arr, 0, base, maxDig)
 }
 
+func RSort10(arr []int) []int {
+	return RSort(arr, 10)
+}
+
 func rdx(ar []int, dig int, base int, maxDig int) []int {
 	if dig >= maxDig {
-		fmt.Println("stop！over!")
 		return ar
 	}
 	var bc Bucket
@@ -55,7 +57,6 @@ func rdx(ar []int, dig int, base int, maxDig int) []int {
 		bc[digitValue] = append(bc[digitValue], ar[i])
 	}
 	flat := flatBuk(bc)
-	fmt.Println(flat, dig, bc)
 	dig++
 	return rdx(flat, dig, base, maxDig)
 }

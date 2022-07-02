@@ -1,17 +1,21 @@
 package sort
 
 import (
+	"algorithms/algorithms/myutil"
 	"fmt"
 	"testing"
 )
 
 func TestCSort(t *testing.T) {
-	fmt.Println(CSort([]int{1, 2, 5, 7, 4}))
+	cS := myutil.RivalTime(300_00_000, CSort)
+	fmt.Println("cS", cS)
 }
 func BenchmarkCSort(b *testing.B) {
 	b.StartTimer()
 	for i := 0; i < b.N; i++ {
-		CSort([]int{1, 2, 5, 7, 4})
+		cS := myutil.RivalTime(300_000, CSort)
+		fmt.Println("cS", cS)
+
 	}
 	b.StopTimer()
 }
